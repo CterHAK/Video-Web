@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ktube</title>
+	<link rel="stylesheet" href="./static/css/_commons.css">
+	
+	<link rel="stylesheet" href="./static/css/_extra.css" as==""style:>
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
+	<link rel="manifest" href="/static/favicons/site.webmanifest">
+	<link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#009933">
+	<link rel="shortcut icon" href="/static/favicons/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" title="RSS feeds" href="/rss" />
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-config" content="/static/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+		
+	<link href="/static/lib/material-icons/material-icons.css" rel="preload" as="style">
+	<link href="/static/lib/gfonts/gfonts.css" rel="preload" as="style">
+	<link href="/static/lib/material-icons/material-icons.css" rel="stylesheet">
+	<link href="/static/lib/gfonts/gfonts.css" rel="stylesheet">
+		
+
+	<link href="/static/js/_commons.js" rel="preload" as="script">
+		
+</head>
+<body>
+	<div id="app-header">
+		<header class="page-header anonymous-user">
+			<div class="page-header-left">
+				<div>
+					<div class="close-search-field">
+						<button class="circle-icon-button">
+							<span>
+								<span>
+									<i class="material-icons">arrow_back</i>
+								</span>
+							</span>
+						</button>
+					</div>
+					<div class="toggle-sidebar">
+						<button class="circle-icon-button">
+							<span>
+								<span>
+									<i class="material-icons">menu</i>
+								</span>
+							</span>
+						</button>
+					</div>
+					<div class="logo">
+						<a href="/" title="MediaCMS">
+							<span>
+								<img src="/static/images/logo_dark.svg" alt="MediaCMS" title="MediaCMS" loading="lazy">
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="search-field-wrap">
+				<div>
+					<form method="get" action="/search" autocomplete="off">
+						<div>
+							<div class="text-field-wrap">
+								<input type="text" placeholder="Rechercher" aria-label="Search" name="q" value="">
+							</div>
+								<button type="submit" aria-label="Search">
+									<i class="material-icons" data-icon="search"></i>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			<div class="page-header-right">
+				<div>
+					<div class="mobile-search-toggle">
+						<button class="circle-icon-button" aria-label="Search">
+							<span>
+								<span>
+									<i class="material-icons" data-icon="search">
+										::after
+										</i>
+									</span>
+								</span>
+							</button>
+						</div>
+					<div class="user-options visible-only-in-extra-small">
+						<button class="circle-icon-button" aria-label="Settings">
+							<span>
+								<span>
+									<i class="material-icons" data-icon="more_vert">
+										::after
+									</i>
+								</span>
+							</span>
+						</button>
+					</div>
+				<div class="sign-in-wrap">
+					<a href="/accounts/login/" rel="noffolow" class="button-link sign-in hidden-only-in-extra-small" title="Se connecter">Se connecter</a>
+				</div>
+				<div class="register-wrap">
+					<a href="/accounts/signup/" class="button-link register-link hidden-only-in-extra-small" title="S'inscrire">S'inscrire</a>
+				</div>
+			</div>
+		</div>
+		::after
+	</header>
+</div>
+<div id="app-sidebar">
+	<div class="page-sidebar">
+		<div class="page-sidebar-inner">
+			<div class="nav-menu">
+				<nav>
+					<ul>
+						<li class="nav-item-home link-item">
+							<a href="/" title="Accueil">
+								<span class="menu-item-icon">
+									<i class="material-icons" data-icon="home">
+									::after
+									</i>
+								</span>
+								<span>Accueil</span>
+							</a>
+						</li>
+						<li class="nav-item-featured link-item">
+							<a href="/featured" title="En vedette">
+								<span class="menu-item-icon">
+									<i class="material-icons" data-icon="star">
+									::after
+									</i>
+								</span>
+								<span>En vedette</span>
+							</a>
+						</li>
+						<li class="nav-item-recommended link-item">
+							<a href="/recommended" title="Recommandé">
+								<span class="menu-item-icon">
+									<i class="material-icons" data-icon="done_outline">
+									::after
+									</i>
+								</span>
+								<span>Recommandé</span>
+							</a>
+						</li>
+						<li class="nav-item-latest link-item">
+							<a href="/latest" title="Dernier">
+								<span class="menu-item-icon">
+									<i class="material-icons" data-icon="new_releases">
+									::after
+									</i>
+								</span>
+								<span>Dernier</span>
+							</a>
+						</li>
+						<li class="nav-item-tags link-item">
+							<a href="/tags" title="Tags">
+								<span class="menu-item-icon">
+									<i class="material-icons" data-icon="local_offer">
+									::after
+									</i>
+								</span>
+								<span>Tags</span>
+							</a>
+						</li>
+						<li class="nav-item-categories link-item">
+							<a href="/categories" title="Catégories">
+								<span class="menu-item-icon">
+									<i class="material-icons" data-icon="list_alt">
+									::after
+									</i>
+								</span>
+								<span>Catégories</span>
+							</a>
+						</li>
+						<li class="nav-item-members link-item">
+							<a href="/members" title="Membres">
+								<span class="menu-item-icon">
+									<i class="material-icons" data-icon="people">
+									:after
+									</i>
+								</span>
+								<span>Membres</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		<div class="nav-menu">
+			<nav>
+				<ul>
+					<li class="nav-item-history link-item">
+						<a href="/history" title="Historique">
+							<span class="menu-item-icon">
+								<i class="material-icons" data-icon="history">
+								::after
+								</i>
+							</span>
+							<span>Historique</span>
+						</a>
+					</li>
+					<li class="nav-item-liked link-item">
+						<a href="/liked" title="Médias aimés">
+							<span class="menu-item-icon">
+								<i class="material-icons" data-icon="thumb_up">
+								:after
+								</i>
+							</span>
+							<span>Médias aimés</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="nav-menu">
+			<nav>
+				<ul>
+					<li class="nav-item-about link-item">
+						<a href="/about" title="À propos">
+							<span class="menu-item-icon">
+								<i class="material-icons" data-icon="contact_support">
+								::after
+								</i>
+							</span>
+							<span>À propos</span>
+						</a>
+					</li>
+					<li class="nav-item-terms link-item">
+						<a href="/tos" title="Conditions">
+							<span class="menu-item-icon">
+								<i class="material-icons" data-icon="description">
+								::after
+								</i>
+							</span>
+							<span>Conditions</span>
+						</a>
+					</li>
+					<li class="nav-item-contact link-item">
+						<a href="/contact" title="Contact">
+							<span class="menu-item-icon">
+								<i class="material-icons" data-icon="alternate_email">
+								::after
+								</i>
+							</span>
+							<span>Contact</span>
+						</a>
+					</li>
+					<li class="nav-item-language link-item">
+						<a href="/setlanguage" title="Langue">
+							<span class="menu-item-icon">
+								<i class="material-icons" data-icon="language">
+								::after
+								</i>
+							</span>
+							<span>Langue</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="sidebar-theme-switcher">
+			<div class="sidebar-theme-switcher-inner">
+				<span class="theme-icon active">
+					<i class="material-icons" data-icon="wb_sunny">
+					:after
+					</i>
+				</span>
+				<span>
+					<span class="checkbox-switcher">
+						<input type="checkbox">
+						::before
+						::after
+						</input>
+					</span>
+				</span>
+				<span class="theme-icon"
+					><i class="material-icons" data-icon="brightness_3">
+					:after
+					</i>
+					</span>
+				</div>
+			</div>
+			<div class="page-sidebar-bottom">
+				"Powered by"
+				<a href="//mediacms.io" title="mediacms.io" target="_blank">mediacms.io</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-main-wrap">
+	<div id="page-home">
+		<div class="page-main">
+			<div class="items-list-ver media-list-wrapper">
+				<div class="media-list-row" style="">
+					<div class="media-list-header">
+						<h2>En vedette</h2>
+						<h3>
+						<a href="/featured" title="VOIR TOUT"> VOIR TOUT </a>
+						</h3>
+					</div>
+					<div class="items-list-outer list-inline list-slider">
+						<div class="items-list-wrap">
+							<div class="items-list">
+								<div class="item video-item pl-active-item on-hover-preview">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=swcx8A2h1" title="Etincidunt dolore eius ut non numquam dolore dolorem." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/fe4933d67b884d4da507dd60e77f7438.VID_20200909_141053.mp4_bU90dbl.jpg&quot;);">
+											<span class="item-duration">
+												<span aria-label="31 seconds" content="P0Y0M0DT0H0M31S">0:31
+												</span>
+											</span>
+											<span class="item-img-preview" data-src="/media/encoded/1/markos/fe4933d67b884d4da507dd60e77f7438.tmpdd72kiwh" data-ext="gif">
+											</span>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=swcx8A2h1" title="Etincidunt dolore eius ut non numquam dolore dolorem.">
+													<span aria-label="Etincidunt dolore eius ut non numquam dolore dolorem.">Etincidunt dolore eius ut non numquam dolore dolorem.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">86 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861923159" content="2024-10-02T05:38:43.159083-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item video-item pl-active-item on-hover-preview">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=K6NHGGzYB" title="Ipsum amet quisquam aliquam." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/c55bb229bd694ab8bd5e35740d9b28a2.VID_20201025_124304.mp4_YbZIcxF.jpg&quot;);">
+											<span class="item-duration">
+												<span aria-label="17 seconds" content="P0Y0M0DT0H0M17S">0:17</span>
+											</span>
+											<span class="item-img-preview" data-src="/media/encoded/1/markos/c55bb229bd694ab8bd5e35740d9b28a2.tmpbxm1izm2" data-ext="gif">
+												<picture>
+													<source type="image/gif" srcset="https://demo.mediacms.io/media/encoded/1/markos/c55bb229bd694ab8bd5e35740d9b28a2.tmpbxm1izm2.gif">
+													<img src="https://demo.mediacms.io/media/encoded/1/markos/c55bb229bd694ab8bd5e35740d9b28a2.tmpbxm1izm2.gif" width="215px" height="121px">
+												</picture>
+											</span>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=K6NHGGzYB" title="Ipsum amet quisquam aliquam.">
+													<span aria-label="Ipsum amet quisquam aliquam.">Ipsum amet quisquam aliquam.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">39 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861838544" content="2024-10-02T05:37:18.544762-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<span class="next-slide">
+							<button class="circle-icon-button button-shadow">
+								<span>
+									<span>
+										<i class="material-icons">keyboard_arrow_right</i>
+									</span>
+								</span>
+							</button>
+						</span>
+					</div>
+				</div>
+				<div class="media-list-row" style="">
+					<div class="media-list-header">
+						<h2>En vedette</h2>
+						<h3>
+						<a href="/featured" title="VOIR TOUT"> VOIR TOUT </a>
+						</h3>
+					</div>
+					<div class="items-list-outer list-inline list-slider">
+						<div class="items-list-wrap">
+							<div class="items-list">
+								<div class="item video-item pl-active-item on-hover-preview">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=swcx8A2h1" title="Etincidunt dolore eius ut non numquam dolore dolorem." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/fe4933d67b884d4da507dd60e77f7438.VID_20200909_141053.mp4_bU90dbl.jpg&quot;);">
+											<span class="item-duration">
+												<span aria-label="31 seconds" content="P0Y0M0DT0H0M31S">0:31
+												</span>
+											</span>
+											<span class="item-img-preview" data-src="/media/encoded/1/markos/fe4933d67b884d4da507dd60e77f7438.tmpdd72kiwh" data-ext="gif">
+											</span>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=swcx8A2h1" title="Etincidunt dolore eius ut non numquam dolore dolorem.">
+													<span aria-label="Etincidunt dolore eius ut non numquam dolore dolorem.">Etincidunt dolore eius ut non numquam dolore dolorem.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">86 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861923159" content="2024-10-02T05:38:43.159083-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item video-item pl-active-item on-hover-preview">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=K6NHGGzYB" title="Ipsum amet quisquam aliquam." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/c55bb229bd694ab8bd5e35740d9b28a2.VID_20201025_124304.mp4_YbZIcxF.jpg&quot;);">
+											<span class="item-duration">
+												<span aria-label="17 seconds" content="P0Y0M0DT0H0M17S">0:17</span>
+											</span>
+											<span class="item-img-preview" data-src="/media/encoded/1/markos/c55bb229bd694ab8bd5e35740d9b28a2.tmpbxm1izm2" data-ext="gif">
+												<picture>
+													<source type="image/gif" srcset="https://demo.mediacms.io/media/encoded/1/markos/c55bb229bd694ab8bd5e35740d9b28a2.tmpbxm1izm2.gif">
+													<img src="https://demo.mediacms.io/media/encoded/1/markos/c55bb229bd694ab8bd5e35740d9b28a2.tmpbxm1izm2.gif" width="215px" height="121px">
+												</picture>
+											</span>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=K6NHGGzYB" title="Ipsum amet quisquam aliquam.">
+													<span aria-label="Ipsum amet quisquam aliquam.">Ipsum amet quisquam aliquam.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">39 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861838544" content="2024-10-02T05:37:18.544762-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<span class="next-slide">
+							<button class="circle-icon-button button-shadow">
+								<span>
+									<span>
+										<i class="material-icons">keyboard_arrow_right</i>
+									</span>
+								</span>
+							</button>
+						</span>
+					</div>
+				</div>
+				<div class="media-list-row" style="">
+					<div class="media-list-header">
+						<h2>En vedette</h2>
+						<h3>
+						<a href="/featured" title="VOIR TOUT"> VOIR TOUT </a>
+						</h3>
+					</div>
+					<div class="items-list-outer list-inline list-slider">
+						<div class="items-list-wrap">
+							<div class="items-list">
+								<div class="item video-item pl-active-item on-hover-preview">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=swcx8A2h1" title="Etincidunt dolore eius ut non numquam dolore dolorem." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/fe4933d67b884d4da507dd60e77f7438.VID_20200909_141053.mp4_bU90dbl.jpg&quot;);">
+											<span class="item-duration">
+												<span aria-label="31 seconds" content="P0Y0M0DT0H0M31S">0:31
+												</span>
+											</span>
+											<span class="item-img-preview" data-src="/media/encoded/1/markos/fe4933d67b884d4da507dd60e77f7438.tmpdd72kiwh" data-ext="gif">
+											</span>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=swcx8A2h1" title="Etincidunt dolore eius ut non numquam dolore dolorem.">
+													<span aria-label="Etincidunt dolore eius ut non numquam dolore dolorem.">Etincidunt dolore eius ut non numquam dolore dolorem.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">86 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861923159" content="2024-10-02T05:38:43.159083-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item video-item pl-active-item on-hover-preview">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=K6NHGGzYB" title="Ipsum amet quisquam aliquam." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/c55bb229bd694ab8bd5e35740d9b28a2.VID_20201025_124304.mp4_YbZIcxF.jpg&quot;);">
+											<span class="item-duration">
+												<span aria-label="17 seconds" content="P0Y0M0DT0H0M17S">0:17</span>
+											</span>
+											<span class="item-img-preview" data-src="/media/encoded/1/markos/c55bb229bd694ab8bd5e35740d9b28a2.tmpbxm1izm2" data-ext="gif">
+												<picture>
+													<source type="image/gif" srcset="https://demo.mediacms.io/media/encoded/1/markos/c55bb229bd694ab8bd5e35740d9b28a2.tmpbxm1izm2.gif">
+													<img src="https://demo.mediacms.io/media/encoded/1/markos/c55bb229bd694ab8bd5e35740d9b28a2.tmpbxm1izm2.gif" width="215px" height="121px">
+												</picture>
+											</span>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=K6NHGGzYB" title="Ipsum amet quisquam aliquam.">
+													<span aria-label="Ipsum amet quisquam aliquam.">Ipsum amet quisquam aliquam.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">39 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861838544" content="2024-10-02T05:37:18.544762-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="item image-item pl-active-item">
+									<div class="item-content">
+										<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius." tabindex="-1" aria-hidden="true" class="item-thumb" style="background-image: url(&quot;https://demo.mediacms.io/media/original/thumbnails/user/markos/ca0e3af507c64fc5995b9d97e4a8c779.20240527_091011.jpg.jpg&quot;);">
+											<div class="item-type-icon">
+												<div>
+													::before
+												</div>
+											</div>
+										</a>
+										<div class="item-main">
+											<h3>
+												<a href="https://demo.mediacms.io/view?m=rNefa4WtV" title="Quaerat modi non eius.">
+													<span aria-label="Quaerat modi non eius.">Quaerat modi non eius.</span>
+												</a>
+											</h3>
+											<span class="item-meta">
+												<span class="item-author">
+													<a href="https://demo.mediacms.io/user/markos/" title="Markos Gogoulos">
+														<span>Markos Gogoulos</span>
+													</a>
+												</span>
+												<span class="item-views">27 vues</span>
+												<span class="item-date">
+													::before
+													<time datetime="1727861806062" content="2024-10-02T05:36:46.062913-04:00">2 il y a quelques jours</time>
+												</span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<span class="next-slide">
+							<button class="circle-icon-button button-shadow">
+								<span>
+									<span>
+										<i class="material-icons">keyboard_arrow_right</i>
+									</span>
+								</span>
+							</button>
+						</span>
+					</div>
+				</div>
+			</div>
+				
+<div class="page-sidebar-content-overlay"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
